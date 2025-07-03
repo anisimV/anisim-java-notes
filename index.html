@@ -12,18 +12,37 @@
     <nav>
         <a href="index.html">Главная</a>
         <a href="about.html">Обо мне</a>
+        <button id="theme-toggle" title="Сменить тему">🌓</button>
     </nav>
 </header>
 
 <main>
-    <article>
+    <article class="post-preview">
         <h2><a href="blog/2025-07-03-oop-in-java.html">Что такое ООП в Java: базовые принципы</a></h2>
         <p>📅 03 июля 2025 — краткий обзор основ объектно-ориентированного подхода в Java.</p>
     </article>
+    <!-- можно добавить больше <article> -->
 </main>
 
 <footer>
-    <p>&copy; anisimV</p>
+    <p>&copy; anisimV — 2025</p>
 </footer>
+
+<script>
+    // Тема: тёмная по умолчанию
+    const root = document.documentElement;
+    const toggleBtn = document.getElementById('theme-toggle');
+    const storedTheme = localStorage.getItem('theme');
+
+    if (storedTheme === 'light') {
+      root.classList.add('light');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+      root.classList.toggle('light');
+      const isLight = root.classList.contains('light');
+      localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+</script>
 </body>
 </html>
