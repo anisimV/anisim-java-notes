@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Логические задачи</title>
+    <link rel="stylesheet" href="/anisim-java-notes/css/style.css" />
+</head>
+<body>
+<header>
+    <div class="header-top">
+        <h1>Блог о Java</h1>
+        <a href="/anisim-java-notes/about.html" class="about-link">«Обо мне»</a>
+    </div>
+    <nav>
+        <a href="/anisim-java-notes/index.html">Главная</a>
+        <a href="/anisim-java-notes/about.html">Pet - проекты</a>
+        <a class="active">Задачи</a>
+        <button id="theme-toggle" title="Сменить тему">🌓</button>
+    </nav>
+</header>
+
+<main>
+    <article>
+        <h2>🧠 Логические и алгоритмические задачи</h2>
+        <p>На этой странице будут собраны задачи для тренировки логического и алгоритмического мышления. Они полезны как для начинающих, так и для опытных Java-разработчиков.</p>
+
+        <ul class="task-list">
+            <li>
+                <a href="/anisim-java-notes/tasks/task1.html">
+                    <strong>Задача 1:</strong> У тебя есть массив из 1000 чисел от 1 до 1000. Одно число удалено. Как найти его максимально эффективно?
+                </a>
+            </li>
+            <li>
+                <a href="#task2">
+                    <strong>Задача 2:</strong> #
+                </a>
+            </li>
+            <li>
+                <a href="#task3">
+                    <strong>Задача 3:</strong> #
+                </a>
+            </li>
+            <li>
+                <a href="#task4">
+                    <strong>Задача 4:</strong> #
+                </a>
+            </li>
+        </ul>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; anisimV — 2025</p>
+</footer>
+
+<script>
+    const body = document.body;
+    const toggleBtn = document.getElementById('theme-toggle');
+    const storedTheme = localStorage.getItem('theme');
+
+    if (storedTheme === 'light') {
+        body.classList.add('light');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('light');
+        const isLight = body.classList.contains('light');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+</script>
+</body>
+</html>

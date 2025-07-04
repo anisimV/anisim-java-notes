@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <title>Задача 1 — Найти удалённое число</title>
+    <link rel="stylesheet" href="/anisim-java-notes/css/style.css"/>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
+</head>
+<body>
+<header>
+    <div class="header-top">
+        <h1>Блог о Java</h1>
+        <a href="/anisim-java-notes/about.html" class="about-link">«Обо мне»</a>
+    </div>
+    <nav>
+        <a href="/anisim-java-notes/index.html">Главная</a>
+        <a href="/anisim-java-notes/about.html">Pet - проекты</a>
+        <a href="/anisim-java-notes/tasks/tasks.html">Задачи</a>
+        <a href="/anisim-java-notes/tasks/task1.html" class="active">Задача 1</a>
+        <button id="theme-toggle" title="Сменить тему">🌓</button>
+    </nav>
+</header>
+
+<main>
+    <article>
+        <div class="article-header">
+            <h2>Задача 1: Найти удалённое число из массива</h2>
+            <span class="article-date">📅 04 июля 2025</span>
+        </div>
+
+        <section>
+            <h3>Условие задачи</h3>
+            <p>У тебя есть массив из 1000 чисел от 1 до 1000. Из этого массива удалено одно число. Нужно найти это
+                удалённое число максимально эффективно — по времени и памяти.</p>
+        </section>
+
+        <section class="task-description">
+            <h3>Условие задачи</h3>
+            <p>У тебя есть массив из 1000 чисел от 1 до 1000. Из этого массива удалено одно число. Нужно найти это
+                удалённое число максимально эффективно — по времени и памяти.</p>
+
+            <ol class="solution-steps">
+                <li>Считаем сумму чисел от 1 до 1000 по формуле <code>sum = n * (n + 1) / 2</code>, где <code>n = 1000</code>.</li>
+                <li>Считаем сумму элементов массива с удалённым числом.</li>
+                <li>Разница между этими суммами и будет удалённым числом.</li>
+            </ol>
+
+            <h4>Почему именно так?</h4>
+            <ul class="why-list">
+                <li>Не нужно выделять дополнительную память под дополнительные структуры.</li>
+                <li>Проход по массиву — это <code>O(n)</code>, а формула — <code>O(1)</code>.</li>
+                <li>Простое и надёжное решение для диапазона чисел с одним пропущенным элементом.</li>
+            </ul>
+        </section>
+
+        <section>
+            <h3>Пример кода на Java</h3>
+            <pre><code class="language-java">
+// Класс для поиска удалённого числа в массиве
+public class MissingNumberFinder {
+
+    /**
+     * Находит удалённое число в массиве от 1 до n, где одно число пропущено
+     * @param numbers массив с одним удалённым числом
+     * @param n верхняя граница диапазона
+     * @return удалённое число
+     */
+    public static int findMissingNumber(int[] numbers, int n) {
+        // Вычисляем ожидаемую сумму от 1 до n по формуле арифметической прогрессии
+        int expectedSum = n * (n + 1) / 2;
+
+        // Считаем сумму элементов массива
+        int actualSum = 0;
+        for (int num : numbers) {
+            actualSum += num;
+        }
+
+        // Возвращаем разницу — удалённое число
+        return expectedSum - actualSum;
+    }
+
+    public static void main(String[] args) {
+        int n = 1000;
+
+        // Пример: массив от 1 до 1000 с удалённым числом 523
+        int missing = 523;
+        int[] numbers = new int[n - 1];
+        int index = 0;
+        for (int i = 1; i <= n; i++) {
+            if (i != missing) {
+                numbers[index++] = i;
+            }
+        }
+
+        int result = findMissingNumber(numbers, n);
+        System.out.println("Удалённое число: " + result);
+    }
+}
+            </code></pre>
+            <p>В этом коде мы создаём массив, пропуская число <code>523</code>, и проверяем, что метод <code>findMissingNumber</code>
+                корректно находит это число.</p>
+        </section>
+    </article>
+</main>
+
+<footer>
+    <p>&copy; anisimV — 2025</p>
+</footer>
+
+<script>
+    const body = document.body;
+    const toggleBtn = document.getElementById('theme-toggle');
+    const storedTheme = localStorage.getItem('theme');
+
+    if (storedTheme === 'light') {
+        body.classList.add('light');
+    }
+
+    toggleBtn.addEventListener('click', () => {
+        body.classList.toggle('light');
+        const isLight = body.classList.contains('light');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+</script>
+</body>
+</html>
