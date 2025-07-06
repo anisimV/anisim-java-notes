@@ -2,38 +2,34 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8"/>
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Что такое ООП в Java</title>
     <link rel="stylesheet" href="/anisim-java-notes/css/style.css"/>
-    <link href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" rel="stylesheet" />
+    <!-- PrismJS DARK theme -->
+    <link id="prism-dark" rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" />
+
+    <!-- PrismJS LIGHT theme -->
+    <link id="prism-light" rel="stylesheet"
+          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
+          disabled />
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
 </head>
 <body>
-<header>
-    <div class="header-top">
-        <h1>Блог о Java</h1>
-        <a href="/anisim-java-notes/about.html" class="about-link">«Обо мне»</a>
-    </div>
-    <nav>
-        <a href="/anisim-java-notes/index.html">Главная</a>
-        <a href="/anisim-java-notes/about.html">Pet - проекты</a>
-        <a href="/anisim-java-notes/tasks/tasks.html">Задачи</a>
-        <button id="theme-toggle" title="Сменить тему">🌓</button>
-    </nav>
-</header>
+<header id="header"></header>
 
 <main>
     <article>
         <div class="article-header">
-            <h2>Что такое ООП в Java: базовые принципы</h2>
+            <h1>Что такое ООП в Java: базовые принципы</h1>
             <span class="article-date">📅 03 июля 2025</span>
         </div>
 
         <p>Объектно-ориентированное программирование (или просто ООП) — это способ написания кода, при котором мы
             представляем данные как объекты из реального мира. Java — это язык, который построен вокруг ООП.</p>
 
-        <h3>🔹 Класс и объект</h3>
+        <h2>🔹 Класс и объект</h2>
         <p><strong>Класс</strong> — это как чертёж. <strong>Объект</strong> — это конкретная вещь, сделанная по этому
             чертежу.</p>
 
@@ -59,7 +55,7 @@ public class Main {
 }
         </code></pre>
 
-        <h3>🔹 Инкапсуляция</h3>
+        <h2>🔹 Инкапсуляция</h2>
         <p>Это когда мы «прячем» внутренности объекта и даём доступ к ним только через методы.</p>
 
         <pre><code class="language-java">
@@ -76,7 +72,7 @@ public class BankAccount {
 }
         </code></pre>
 
-        <h3>🔹 Наследование</h3>
+        <h2>🔹 Наследование</h2>
         <p>Позволяет одному классу «наследовать» поведение другого. Это как взять старый чертёж и немного его
             дополнить.</p>
 
@@ -101,7 +97,7 @@ public class Main {
 }
         </code></pre>
 
-        <h3>🔹 Полиморфизм</h3>
+        <h2>🔹 Полиморфизм</h2>
         <p>Это когда один и тот же метод может вести себя по-разному, в зависимости от контекста.</p>
 
         <pre><code class="language-java">
@@ -123,31 +119,4 @@ public class Main {
         <p>Вот и всё! Если ты понял, что объекты похожи на реальные вещи, а классы — это как их описания, значит ты уже
             на пути к пониманию ООП.</p>
 
-        <p><strong>⏭ В следующей статье</strong> поговорим о том, как использовать интерфейсы и зачем они вообще нужны.
-        </p>
-    </article>
-</main>
-
-<footer>
-    <p>&copy; anisimV — 2025</p>
-</footer>
-
-<script>
-    const body = document.body;
-    const toggleBtn = document.getElementById('theme-toggle');
-    const storedTheme = localStorage.getItem('theme');
-
-    if (storedTheme === 'light') {
-        body.classList.add('light');
-    }
-
-    if (toggleBtn) {
-        toggleBtn.addEventListener('click', () => {
-            body.classList.toggle('light');
-            const isLight = body.classList.contains('light');
-            localStorage.setItem('theme', isLight ? 'light' : 'dark');
-        });
-    }
-</script>
-</body>
-</html>
+        <p><strong>⏭ В следующей статье</strong> поговорим о том, как

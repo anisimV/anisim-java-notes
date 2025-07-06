@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+</head>
+<body>
+<div class="header-top">
+    <h1>Блог о Java</h1>
+    <a href="/anisim-java-notes/about.html" class="about-link">«Обо мне»</a>
+</div>
+<nav>
+    <a href="/anisim-java-notes/index.html" id="nav-home">Главная</a>
+    <a href="/anisim-java-notes/about.html" id="nav-about">Pet - проекты</a>
+    <a href="/anisim-java-notes/tasks/tasks.html" id="nav-tasks">Задачи</a>
+    <button id="theme-toggle" title="Сменить тему">🌓</button>
+</nav>
+
+<script>
+    const body = document.body;
+    const toggleBtn = document.getElementById('theme-toggle');
+    const storedTheme = localStorage.getItem('theme');
+
+    if (storedTheme === 'light') {
+        body.classList.add('light');
+    }
+
+    toggleBtn?.addEventListener('click', () => {
+        const isLight = body.classList.toggle('light');
+        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    });
+
+    // Подсвечивание активной ссылки навигации
+    document.addEventListener('DOMContentLoaded', () => {
+        const path = window.location.pathname;
+        if (path.includes('index.html') || path === '/' || path.endsWith('/anisim-java-notes/')) {
+            document.getElementById('nav-home').classList.add('active');
+        } else if (path.includes('about.html')) {
+            document.getElementById('nav-about').classList.add('active');
+        } else if (path.includes('/tasks/')) {
+            document.getElementById('nav-tasks').classList.add('active');
+        }
+    });
+</script>
+
+</body>
+</html>

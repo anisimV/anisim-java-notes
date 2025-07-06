@@ -2,27 +2,16 @@
 <html lang="ru">
 <head>
     <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
     <title>Логические задачи</title>
     <link rel="stylesheet" href="/anisim-java-notes/css/style.css" />
 </head>
 <body>
-<header>
-    <div class="header-top">
-        <h1>Блог о Java</h1>
-        <a href="/anisim-java-notes/about.html" class="about-link">«Обо мне»</a>
-    </div>
-    <nav>
-        <a href="/anisim-java-notes/index.html">Главная</a>
-        <a href="/anisim-java-notes/about.html">Pet - проекты</a>
-        <a class="active">Задачи</a>
-        <button id="theme-toggle" title="Сменить тему">🌓</button>
-    </nav>
-</header>
+<header id="header"></header>
 
 <main>
     <article>
-        <h2>🧠 Логические и алгоритмические задачи</h2>
+        <h1>🧠 Логические и алгоритмические задачи</h1>
         <p>На этой странице будут собраны задачи для тренировки логического и алгоритмического мышления. Они полезны как для начинающих, так и для опытных Java-разработчиков.</p>
 
         <ul class="task-list">
@@ -50,23 +39,25 @@
     </article>
 </main>
 
-<footer>
-    <p>&copy; anisimV — 2025</p>
-</footer>
+<footer id="footer"></footer>
 
 <script>
-    const body = document.body;
-    const toggleBtn = document.getElementById('theme-toggle');
-    const storedTheme = localStorage.getItem('theme');
-
-    if (storedTheme === 'light') {
-        body.classList.add('light');
+    async function loadHTML(id, url) {
+        const container = document.getElementById(id);
+        const resp = await fetch(url);
+        if (resp.ok) {
+            const html = await resp.text();
+            container.innerHTML = html;
+        } else {
+            container.innerHTML = `<p>Ошибка загрузки ${url}</p>`;
+        }
     }
 
-    toggleBtn.addEventListener('click', () => {
-        body.classList.toggle('light');
-        const isLight = body.classList.contains('light');
-        localStorage.setItem('theme', isLight ? 'light' : 'dark');
+    document.addEventListener('DOMContentLoaded', () => {
+        loadHTML('header', '/anisim-java-notes/includes/header.html');
+        loadHTML('footer', '/anisim-java-notes/includes/footer.html');
+
+        // Подсветка темы в header (сделано там)
     });
 </script>
 </body>
