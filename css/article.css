@@ -1,22 +1,22 @@
-/* Темная тема по умолчанию */
+/* Используем переменные из style.css для цвета и фона */
+
+/* Основные стили для body */
 body {
   margin: 0;
   padding: 2rem;
-  background-color: #121212;
-  color: #e0e0e0;
+  background-color: var(--bg-color);
+  color: var(--text-color);
   font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
   line-height: 1.6;
   max-width: 750px;
   margin-inline: auto;
 }
 
-body.light {
-  background-color: #ffffff;
-  color: #111;
-}
+/* Убираем body.light — оно уже задано в style.css */
 
+/* Стили для header */
 header {
-  border-bottom: 1px solid #333;
+  border-bottom: 1px solid var(--border-color);
   margin-bottom: 2rem;
 }
 
@@ -25,6 +25,7 @@ h1 {
   font-size: 2rem;
 }
 
+/* Навигация */
 nav {
   margin-top: 0.5rem;
   display: flex;
@@ -34,7 +35,7 @@ nav {
 
 nav a {
   text-decoration: none;
-  color: #4dabf7;
+  color: var(--link-color);
   font-weight: bold;
 }
 
@@ -42,16 +43,17 @@ nav a:hover {
   text-decoration: underline;
 }
 
+/* Кнопка переключения темы */
 #theme-toggle {
   margin-left: auto;
   background: transparent;
   border: none;
-  color: inherit;
+  color: var(--text-color);
   font-size: 1.2rem;
   cursor: pointer;
 }
 
-/* Статья */
+/* Стили для статьи */
 .post h2 {
   font-size: 1.8rem;
   margin-bottom: 0.2rem;
@@ -59,7 +61,7 @@ nav a:hover {
 
 .meta {
   font-size: 0.9rem;
-  color: #aaa;
+  color: #aaa; /* Можно оставить фиксированный серый цвет */
   margin-bottom: 1rem;
 }
 
@@ -68,26 +70,31 @@ nav a:hover {
   font-size: 1.3rem;
 }
 
+/* Код и блоки кода */
 code, pre {
-  background-color: #1e1e1e;
-  color: #dcdcdc;
+  background-color: #2b2b2b; /* Фон темной темы */
+  color: #dcdcdc; /* Цвет текста кода */
   padding: 1rem;
   border-radius: 5px;
   overflow-x: auto;
   font-family: 'Fira Code', monospace;
   font-size: 0.95rem;
   display: block;
+  transition: background-color 0.3s ease, color 0.3s ease;
 }
 
-body.light code, body.light pre {
+/* При светлой теме меняем фон и цвет кода */
+body.light code,
+body.light pre {
   background-color: #f5f5f5;
   color: #111;
 }
 
+/* Автор статьи */
 .author {
   margin-top: 2rem;
   font-size: 0.85rem;
   color: #888;
-  border-top: 1px solid #333;
+  border-top: 1px solid var(--border-color);
   padding-top: 1rem;
 }

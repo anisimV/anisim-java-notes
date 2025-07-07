@@ -1,50 +1,25 @@
 <!DOCTYPE html>
 <html lang="ru">
 <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta charset="UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1"/>
     <title>Блог Java-разработчика</title>
-    <link rel="stylesheet" href="/anisim-java-notes/css/style.css" />
+    <link rel="stylesheet" href="/anisim-java-notes/css/style.css"/>
 
-    <!-- PrismJS DARK theme -->
     <link id="prism-dark" rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css" />
-
-    <!-- PrismJS LIGHT theme -->
+          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism-okaidia.min.css"/>
     <link id="prism-light" rel="stylesheet"
-          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css"
-          disabled />
+          href="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/themes/prism.min.css" disabled/>
 
-    <!-- PrismJS core -->
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/prism.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/prism/1.29.0/components/prism-java.min.js"></script>
-
-    <style>
-        .code-featured {
-            margin-top: 2rem;
-            margin-bottom: 2rem;
-        }
-
-        .code-featured pre {
-            background-color: #2b2b2b;
-            padding: 1rem;
-            border-radius: 8px;
-            overflow-x: auto;
-        }
-
-        body.light .code-featured pre {
-            background-color: #f4f4f4;
-        }
-    </style>
 </head>
 <body>
 <header id="header"></header>
 
 <main>
     <article class="post-preview">
-        <h1>Блог о Java</h1>
 
-        <!-- Блок с примером кода сразу после заголовка -->
         <section class="code-featured">
         <pre><code class="language-java">
 public class Hello {
@@ -54,8 +29,6 @@ public class Hello {
 }
         </code></pre>
         </section>
-
-        <!-- Навигация ниже блока кода (убрал — она теперь в header) -->
 
         <article>
             <h2>
@@ -70,22 +43,6 @@ public class Hello {
 
 <footer id="footer"></footer>
 
-<script>
-    async function loadHTML(id, url) {
-        const container = document.getElementById(id);
-        const resp = await fetch(url);
-        if (resp.ok) {
-            const html = await resp.text();
-            container.innerHTML = html;
-        } else {
-            container.innerHTML = `<p>Ошибка загрузки ${url}</p>`;
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        loadHTML('header', '/anisim-java-notes/includes/header.html');
-        loadHTML('footer', '/anisim-java-notes/includes/footer.html');
-    });
-</script>
+<script src="/anisim-java-notes/js/main.js"></script>
 </body>
 </html>

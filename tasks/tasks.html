@@ -21,44 +21,18 @@
                 </a>
             </li>
             <li>
-                <a href="#task2">
-                    <strong>Задача 2:</strong> #
+                <a href="/anisim-java-notes/tasks/task2.html">
+                    <strong>Задача 2:</strong> Проверить, является ли строка палиндромом
                 </a>
             </li>
-            <li>
-                <a href="#task3">
-                    <strong>Задача 3:</strong> #
-                </a>
-            </li>
-            <li>
-                <a href="#task4">
-                    <strong>Задача 4:</strong> #
-                </a>
-            </li>
+            <li><a href="#task3"><strong>Задача 3:</strong> #</a></li>
+            <li><a href="#task4"><strong>Задача 4:</strong> #</a></li>
         </ul>
     </article>
 </main>
 
 <footer id="footer"></footer>
 
-<script>
-    async function loadHTML(id, url) {
-        const container = document.getElementById(id);
-        const resp = await fetch(url);
-        if (resp.ok) {
-            const html = await resp.text();
-            container.innerHTML = html;
-        } else {
-            container.innerHTML = `<p>Ошибка загрузки ${url}</p>`;
-        }
-    }
-
-    document.addEventListener('DOMContentLoaded', () => {
-        loadHTML('header', '/anisim-java-notes/includes/header.html');
-        loadHTML('footer', '/anisim-java-notes/includes/footer.html');
-
-        // Подсветка темы в header (сделано там)
-    });
-</script>
+<script src="/anisim-java-notes/js/main.js"></script>
 </body>
 </html>
